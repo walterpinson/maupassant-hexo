@@ -10,7 +10,10 @@ head
     meta(property='og:url', content=page.permalink)
     meta(property='og:site_name', content=config.title)
     meta(property='og:description', content=page.excerpt)
-    meta(property='og:image', content='http://walterpinson.com/images/party.png')
+    if post.featured_image
+      meta(property='og:image', content=post.featured_image)
+    else
+      meta(property='og:image', content='http://walterpinson.com/images/party.png')
     block title
     link(rel='stylesheet', type='text/css', href=url_for(theme.css) + '/style.css' + '?v=' + theme.version)
     link(rel='stylesheet', type='text/css', href='//cdn.bootcss.com/normalize/6.0.0/normalize.min.css')
